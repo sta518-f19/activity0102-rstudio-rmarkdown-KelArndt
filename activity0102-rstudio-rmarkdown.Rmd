@@ -56,19 +56,28 @@ dino_data %>%
   summarize(r = cor(x, y))
 ```
 
-Both r values show that the dino and star datasets have moderately strong, negative association with the star r value, -0.0629, being just a tad bit smaller than the dino r value, -0.0644.
+Both r-values show that the dino and star datasets have weak, negative association with the star r-value, -0.0629, being just a tad bit weaker than the dino r-value, -0.0644.
 
 ### Exercise 4
 
-(Add code and narrative as needed. Note that two R chunks are given but they are not labeled. Use the convention from above to name them appropriately.)
+plots data into circle dataset:
 
-```{r}
+```{r plot-circle, fig.height=3, fig.width=6}
+dino_data <- datasaurus_dozen %>%
+  filter(dataset == "circle")
 
+ggplot(data = dino_data, mapping = aes(x = x, y = y)) +
+  geom_point()
 ```
 
-```{r}
+Calculates correlation between `x` and `y` in circle dataset:
 
+```{r cor-circle}
+dino_data %>%
+  summarize(r = cor(x, y))
 ```
+
+Both r-values show a weak, negative association for the datasets of dino and circle. The association of the circle dataset, -0.0683 however is slightly stronger than that of dino, -0.0644.
 
 ### Exercise 5
 
