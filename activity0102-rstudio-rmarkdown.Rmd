@@ -2,7 +2,12 @@
 title: "Activity 1.2 - RStudio and R Markdown"
 author: "Kelly Arndt"
 date: "8/26/2019"
-output: html_document
+output: 
+  html_document: 
+    fig_height: 9
+    fig_width: 9
+    highlight: espresso
+    theme: spacelab
 ---
 
 ### Load packages
