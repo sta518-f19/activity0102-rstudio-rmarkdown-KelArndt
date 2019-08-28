@@ -56,7 +56,9 @@ dino_data %>%
   summarize(r = cor(x, y))
 ```
 
-Both r-values show that the dino and star datasets have weak, negative association with the star r-value, -0.0629, being just a tad bit weaker than the dino r-value, -0.0644.
+Both r-values show that the dino and star datasets have weak, negative association 
+with the star r-value, -0.0629, being just a tad bit weaker than the dino r-value, 
+-0.0644.
 
 ### Exercise 4
 
@@ -77,8 +79,30 @@ dino_data %>%
   summarize(r = cor(x, y))
 ```
 
-Both r-values show a weak, negative association for the datasets of dino and circle. The association of the circle dataset, -0.0683 however is slightly stronger than that of dino, -0.0644.
+Both r-values show a weak, negative association for the datasets of dino and circle. 
+The association of the circle dataset, -0.0683 however is slightly stronger than that 
+of dino, -0.0644.
 
 ### Exercise 5
 
-(Add code and narrative as needed. To add R chunks either type out the backticks, curly braces, and the letter `r` or use the Insert chunk button above, green C+.)
+
+- Plots all 13 datasets giving each their own color, color = dataset, for data points. 
+- Puts the plots into 3 columns, ncol = 3.
+- Allows us to see all datasets, facet_wrap.
+- Takes away a legend for datasets with corresponding color, theme(legend.position = "none").
+
+```{r}
+ggplot(data = datasaurus_dozen, aes(x = x, y = y, color = dataset)) + 
+  geom_point() +
+  facet_wrap(~ dataset, ncol = 3) + 
+  theme(legend.position = "none")
+```
+
+Calculates and displays r-values for all 13 datasets individually.
+
+```{r}
+datasaurus_dozen %>%
+  group_by(dataset) %>%
+  summarize(r = cor(x, y)) %>%
+  print(13)
+```
