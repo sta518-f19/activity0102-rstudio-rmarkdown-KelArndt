@@ -20,9 +20,7 @@ Variables: dataset, x-values, and y-values.
 
 ### Exercise 2
 
-(The answers for this Exercise are given for you below. But you should clean up some of the narrative so that it only includes what you want to turn in.)
-
-First let's plot the data in the dino dataset:
+Plots data into dino dataset:
 
 ```{r plot-dino, fig.height=3, fig.width=6}
 dino_data <- datasaurus_dozen %>%
@@ -32,7 +30,7 @@ ggplot(data = dino_data, mapping = aes(x = x, y = y)) +
   geom_point()
 ```
 
-And next calculate the correlation between `x` and `y` in this dataset:
+Calculates correlation between `x` and `y` in dino dataset:
 
 ```{r cor-dino}
 dino_data %>%
@@ -41,19 +39,24 @@ dino_data %>%
 
 ### Exercise 3
 
-(Add code and narrative as needed. Note that the R chunks are labeled with `plot-star` and `cor-star` to provide spaces to place the code for plotting and calculating the correlation coefficient. To finish, clean up the narrative by removing these instructions.)
+plots data into star dataset:
 
-Blah blah blah...
+```{r plot-star, fig.height=3, fig.width=6}
+dino_data <- datasaurus_dozen %>%
+  filter(dataset == "star")
 
-```{r plot-star}
-
+ggplot(data = dino_data, mapping = aes(x = x, y = y)) +
+  geom_point()
 ```
 
-I'm some text, you should replace me with more meaningful text...
+Calculates correlation between `x` and `y` in star dataset:
 
 ```{r cor-star}
-
+dino_data %>%
+  summarize(r = cor(x, y))
 ```
+
+Both r values show that the dino and star datasets have moderately strong, negative association with the star r value, -0.0629, being just a tad bit smaller than the dino r value, -0.0644.
 
 ### Exercise 4
 
